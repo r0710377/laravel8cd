@@ -24,8 +24,8 @@ pipeline {
         }*/
         stage("Unit test") {
             steps {
-                sh 'sudo composer install'
-                sh 'sudo composer dump-autoload'
+                sh 'sudo -S composer install'
+                sh 'sudo -S composer dump-autoload'
                 sh 'phpunit -c phpunit.xml'
             }
         }
