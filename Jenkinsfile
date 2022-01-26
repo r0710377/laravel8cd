@@ -24,7 +24,7 @@ pipeline {
         }*/
         stage("Unit test") {
             steps {
-                sh 'composer install'
+                sh 'composer update'
                 sh 'phpunit -c phpunit.xml'
             }
         }
