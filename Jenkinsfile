@@ -24,7 +24,7 @@ pipeline {
         }*/
         stage("Unit test") {
             steps {
-                sh 'phpunit -c tests/RouteTest.php'
+                sh 'phpunit'
             }
         }
     }
