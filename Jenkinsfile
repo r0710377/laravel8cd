@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        /*stage("Build") {
+        stage("Build") {
             environment {
-                DB_HOST = credentials("laravel-host")
-                DB_DATABASE = credentials("laravel-database")
-                DB_USERNAME = credentials("laravel-user")
-                DB_PASSWORD = credentials("laravel-password")
+                DB_HOST = credentials("robincraft007.ddns.net")
+                DB_DATABASE = credentials("poject")
+                DB_USERNAME = credentials("project_user")
+                DB_PASSWORD = credentials("project_password")
             }
             steps {
                 sh 'php --version'
@@ -21,7 +21,7 @@ pipeline {
                 sh 'cp .env .env.testing'
                 sh 'php artisan migrate'
             }
-        }*/
+        }
         stage("Unit test") {
             steps {
                 sh 'php artisan test'
@@ -44,7 +44,7 @@ pipeline {
         }
         stage("Docker build") {
             steps {
-                sh "docker build -t danielgara/laravel8cd ."
+                sh "docker build -t r0710377/laravel8cd ."
             }
         }
         stage("Docker push") {
@@ -54,12 +54,12 @@ pipeline {
             }
             steps {
                 sh "docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}"
-                sh "docker push danielgara/laravel8cd"
+                sh "docker push r0710377/laravel8cd"
             }
         }
         stage("Deploy to staging") {
             steps {
-                sh "docker run -d --rm -p 80:80 --name laravel8cd danielgara/laravel8cd"
+                sh "docker run -d --rm -p 80:80 --name laravel8cd r0710377/laravel8cd"
             }
         }
         stage("Acceptance test curl") {
