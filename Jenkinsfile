@@ -24,7 +24,7 @@ pipeline {
         }*/
         stage("Unit test") {
             steps {
-                sh 'php artisan test'
+                sh 'phpunit -c phpunit.xml'
             }
         }
     }
