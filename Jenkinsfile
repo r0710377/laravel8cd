@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Code coverage") {
             steps {
-                sh "vendor/bin/phpunit --coverage-html 'reports/coverage'"
+                sh "vendor/bin/phpunit tests/Feature/RouteTest.php --coverage-html 'reports/coverage'"
             }
         }
   }
