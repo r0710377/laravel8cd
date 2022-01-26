@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Build") {
+        /*stage("Build") {
             environment {
                 DB_HOST = credentials("robincraft007.ddns.net")
                 DB_DATABASE = credentials("poject")
@@ -21,7 +21,7 @@ pipeline {
                 sh 'cp .env .env.testing'
                 sh 'php artisan migrate'
             }
-        }
+        }*/
         stage("Unit test") {
             steps {
                 sh 'php artisan test'
