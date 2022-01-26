@@ -24,7 +24,7 @@ pipeline {
         }*/
         stage("Unit test") {
             steps {
-                sh 'phpunit'
+                sh 'phpunit -c /var/lib/jenkins/workspace/TestPipeline/phpunit.xml'
             }
         }
     }
