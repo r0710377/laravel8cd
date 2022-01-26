@@ -24,6 +24,7 @@ pipeline {
         }*/
         stage("Unit test") {
             steps {
+                sh 'composer install'
                 sh 'php artisan test'
             }
         }
