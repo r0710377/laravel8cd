@@ -22,9 +22,9 @@ pipeline {
                 sh 'php artisan migrate'
             }
         }*/
-        stage("Unit test") {
+         stage("Unit test") {
             steps {
-                sh 'phpunit -c phpunit.xml'
+                sh 'php artisan test'
             }
         }
     }
