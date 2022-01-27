@@ -19,6 +19,12 @@ pipeline {
                 sh "vendor/bin/phpunit tests/Feature/RouteTest.php --coverage-html 'reports/coverage'"
             }
         }
+        stage("Deploy") {
+            steps {
+                sh "cp /var/jenkins_home/workspace/TestRepo /var/www/test"
+            }
+        }
+         
         /*stage("Static code analysis larastan") {
             steps {
                 sh "vendor/bin/phpstan analyse --memory-limit=2G"
