@@ -47,7 +47,7 @@ pipeline {
         }
         stage("Deploy to staging") {
             steps {
-                sh "docker run -d --rm -p 80:80 --name laravel8cd r0710377/laravel8cd"
+                sh "docker cp jenkins:/var/jenkins_home/workspace/CloudWineBackend /var/www/"
             }
         }
   }
