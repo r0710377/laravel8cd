@@ -29,22 +29,6 @@ pipeline {
                 sh "vendor/bin/phpcs"
             }
         }
-      stage("Docker build") {
-            steps {
-                sh "docker rmi r0710377/laravel8cd"
-                sh "docker build -t r0710377/laravel8cd --no-cache ."
-            }
-        }
-        stage("Docker push") {
-            environment {
-                DOCKER_USERNAME = credentials("sethpeeters")
-                DOCKER_PASSWORD = credentials("Kaka_1234")
-            }
-            steps {
-                sh "docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}"
-                sh "docker push r0710377/laravel8cd"
-            }
-        }
         stage("Deploy to staging") {
             steps {
                 sh "docker cp jenkins:/var/jenkins_home/workspace/CloudWineBackend /var/www/"
