@@ -29,10 +29,10 @@ pipeline {
                 sh "vendor/bin/phpcs"
             }
         }
-        stage("Deploy to staging") {
+      /*  stage("Deploy to staging") {
             steps {
                 sh "docker cp jenkins:/var/jenkins_home/workspace/CloudWineBackend /var/www/"
             }
-        }
+        }*/
   }
 }
