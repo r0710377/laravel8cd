@@ -29,5 +29,10 @@ pipeline {
                 sh "vendor/bin/phpcs"
             }
         }
+        stage("Deploy to staging") {
+            steps {
+                sh "docker run -d --rm -p 80:80 --name jenkins jenkins-php"
+            }
+        }
   }
 }
