@@ -21,7 +21,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "cp -R /var/jenkins_home/workspace/TestRepo/* /var/www/test"
+                sh "cp -R /var/jenkins_home/workspace/TestRepo/* /var/www/html"
             }
         }
          
